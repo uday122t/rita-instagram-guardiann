@@ -85,6 +85,11 @@ def capabilities():
     }
 
 
+@app.get("/api/oauth-ready")
+def oauth_ready_status():
+    return {"ready": oauth_ready()}
+
+
 @app.get("/auth/instagram")
 def instagram_login():
     if not oauth_ready():
