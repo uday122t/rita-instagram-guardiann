@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>RITA Instagram Guardian</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">R</span><div><b>RITA</b><small>INSTAGRAM GUARDIAN</small></div></div>
+    <nav><a class="active" href="#overview">نظرة عامة</a><a href="#rules">قواعد المجموعة</a><a href="#log">سجل المخالفات</a><a href="#status">حالة الربط</a></nav>
+    <div class="side-note">نسخة تجريبية<br>لا يوجد اتصال بإنستغرام بعد</div>
+  </aside>
+  <main>
+    <header><div><p class="eyebrow">CONTROL CENTER</p><h1>لوحة الحماية والإدارة</h1><p class="muted">تابع القواعد وسجّل المخالفات من مكان واحد</p></div><span class="status"><i></i> وضع تجريبي</span></header>
+    <section class="stats" id="overview">
+      <article><span>القواعد النشطة</span><strong id="ruleCount">4</strong><small>قواعد محلية</small></article>
+      <article><span>المخالفات المسجلة</span><strong id="violationCount">0</strong><small>على هذا المتصفح</small></article>
+      <article><span>حالة Instagram</span><strong class="warning">غير مربوط</strong><small>بانتظار تكامل رسمي</small></article>
+    </section>
+    <section class="panel" id="rules"><div class="section-head"><div><h2>قواعد المجموعة</h2><p class="muted">فعّل أو عطّل القواعد التي تريد متابعتها</p></div></div><div id="ruleList" class="rule-list"></div></section>
+    <section class="panel" id="log">
+      <div class="section-head"><div><h2>تسجيل مخالفة</h2><p class="muted">سجل الملاحظة يدويًا للمراجعة</p></div></div>
+      <form id="violationForm">
+        <label>اسم العضو أو معرّفه<input id="member" required maxlength="80" placeholder="مثال: member_01"></label>
+        <label>نوع المخالفة<select id="type"><option>رسائل مزعجة</option><option>إساءة أو شتائم</option><option>روابط غير مرغوبة</option><option>مخالفة قواعد المجموعة</option></select></label>
+        <label>التفاصيل<textarea id="details" rows="3" maxlength="500" placeholder="اكتب وصفًا مختصرًا..."></textarea></label>
+        <button type="submit">إضافة إلى السجل</button>
+      </form>
+      <div class="log-head"><h3>آخر السجلات</h3><button class="ghost" id="clearLog" type="button">مسح السجل المحلي</button></div>
+      <div id="entries" class="entries"><p class="empty">لا توجد مخالفات مسجلة حتى الآن</p></div>
+    </section>
+    <section class="panel" id="status"><h2>حدود الربط</h2><p class="muted">هذه اللوحة لا تسجّل الدخول إلى Instagram ولا تنفّذ الحذف أو الطرد. أي ربط لاحق سيكون عبر واجهات Meta الرسمية وبحسب الصلاحيات المتاحة للحساب والتطبيق.</p><div id="apiStatus" class="api-status">جارٍ فحص الخادم...</div></section>
+    <footer>RITA Instagram Guardian <span>Prototype v0.1.0</span></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
