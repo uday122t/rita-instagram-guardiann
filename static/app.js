@@ -37,19 +37,19 @@ $("clearLog").addEventListener("click",()=>{
 renderRules();renderLogs();
 $("connectInstagram").addEventListener("click",async()=>{
   $("connectInstagram").disabled=true;
-  $("connectInstagram").textContent="جارٍ تجهيز تسجيل الدخول...";
+  $("connectInstagram").textContent="جارٍ التحقق...";
   try{
-    const r=await fetch("/auth/instagram");
-    if(r.status===503){
-      const d=await r.json();
-      $("apiStatus").textContent=d.error||"إعداد تطبيق Meta غير مكتمل.";
+    const r=await fetch("/api/oauth-ready");
+    const d=await r.json();
+    if(!d.ready){
+      $("apiStatus").textContent="إعداد تطبيق Meta ومفاتيح الحماية غير مكتمل بعد.";
       $("connectInstagram").disabled=false;
       $("connectInstagram").textContent="ربط حساب Instagram";
       return;
     }
     window.location.href="/auth/instagram";
   }catch(e){
-    $("apiStatus").textContent="تعذر بدء تسجيل الدخول. تأكد أن الخادم يعمل.";
+    $("apiStatus").textContent="تعذر الاتصال بالخادم.";
     $("connectInstagram").disabled=false;
     $("connectInstagram").textContent="ربط حساب Instagram";
   }
